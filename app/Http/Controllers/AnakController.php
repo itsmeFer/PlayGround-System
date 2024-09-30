@@ -2,63 +2,47 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Anak;
 use Illuminate\Http\Request;
 
 class AnakController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    // Metode untuk menampilkan daftar anak
     public function index()
     {
-        //
+        $anaks = Anak::all(); // Mengambil semua data anak dari database
+        return view('anaks.index', compact('anaks')); // Mengirim data ke view
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
+    // Metode untuk menampilkan form pendaftaran
     public function create()
     {
-        //
+        return view('anaks.create'); // Tampilkan form pendaftaran
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
+    // Metode untuk menyimpan data anak
     public function store(Request $request)
     {
-        //
-    }
+        // Validasi data
+        $validatedData = $request->validate([
+            'nama' => 'required|string|max:255',
+            'umur' => 'required|integer',
+            'alamat' => 'required|string',
+            'orang_tua' => 'required|string|max:255',
+            'kontak_orang_tua' => 'required|string',
+            'member' => 'required|in:ya,tidak',
+        ]);
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
+        // Simpan data anak ke database
+        Anak::create($validatedData);
 
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
+        return redirect()->route('anaks.index')->with('success', 'Pendaftaran berhasil!'); // Redirect ke halaman daftar anak
     }
+    public function destroy($id)
+{
+    $anak = Anak::findOrFail($id); // Mencari anak berdasarkan ID
+    $anak->delete(); // Menghapus data anak
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
-    }
+    return redirect()->route('anaks.index')->with('success', 'Data anak berhasil dihapus!'); // Redirect ke halaman daftar anak
+}
 }
