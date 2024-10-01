@@ -32,7 +32,7 @@
             <option value="tidak">Tidak</option>
         </select>
 
-        <button type="submit">Daftar</button>
+        <button type="submit">Daftarkan anak</button>
     </form>
 
     <a href="{{ route('anaks.index') }}">Kembali ke Daftar Anak</a>
