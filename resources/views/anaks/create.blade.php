@@ -17,7 +17,7 @@
         <label for="umur">Umur:</label>
         <input type="number" name="umur" required>
 
-        <label for="alamat">Alamat:</label>
+        <label for="alamat">Alamat lengkap:</label>
         <textarea name="alamat" required></textarea>
 
         <label for="orang_tua">Orang Tua:</label>
