@@ -11,7 +11,7 @@
     <form action="{{ route('anaks.store') }}" method="POST">
         @csrf
         
-        <label for="nama">Nama:</label>
+        <label for="nama">Nama lengkap:</label>
         <input type="text" name="nama" required>
 
         <label for="umur">Umur:</label>
