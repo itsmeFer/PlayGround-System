@@ -12,7 +12,7 @@
             <tr>
                 <th>Nama</th>
                 <th>Umur</th>
-                <th>Alamat</th>
+                <th>Alamat lengkap</th>
                 <th>Orang Tua</th>
                 <th>Kontak Orang Tua</th>
                 <th>Member</th>
