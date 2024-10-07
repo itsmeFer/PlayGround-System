@@ -10,7 +10,7 @@
     <table class="table table-bordered">
         <thead>
             <tr>
-                <th>Nama</th>
+                <th>Nama lengkap</th>
                 <th>Umur</th>
                 <th>Alamat lengkap</th>
                 <th>Orang Tua</th>
